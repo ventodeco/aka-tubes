@@ -1,0 +1,167 @@
+html, body {
+    scroll-behavior: smooth;
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: linear-gradient(135deg, #3C8CE7 10%, #00EAFF 100%);
+    font-family: 'Baloo Paaji 2', cursive;
+}
+
+#content {
+    padding-bottom: 150px;
+}
+
+.center-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+#message {
+    max-width: 320px;
+}
+
+.box {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    border-radius: 25px;
+    background-color: white;
+    margin: 10px;
+    padding: 20px;
+    width: 400px;
+    z-index: 1;
+}
+
+.btn {
+    border: none;
+    margin: 25px;
+    padding: 10px;
+    border-radius: 5px;
+    letter-spacing: 0.2em
+}
+
+.btn-next:hover, .btn-sort:hover {
+    background-color: #2d67a9;
+}
+
+.btn-next, .btn-sort {
+    background-color: #3C8CE7;
+    color: white;
+}
+
+.btn-next {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.btn-sort {
+    margin: 0px;
+}
+
+.btn-algoritma {
+    position: absolute;
+    right: 0;
+    background-color: white;
+    color: black;
+    z-index: 1;
+}
+
+.btn-algoritma:hover {
+    background-color: #3C8CE7;
+    color: white;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    -webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.flex-container > .item {
+    background-color: white;
+    margin: 10px;
+    padding: 20px;
+    font-size: 25px;
+    letter-spacing: 5px;
+    
+}
+
+.flex-container > .step {
+    position: absolute;
+    left: 0;
+    font-size: 25px;
+    color: white;
+    margin: 10px;
+    padding: 20px;
+}
+
+.input-text {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    display: none;
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: none;
+    border-radius: 25px;
+    width: 60%;
+    -webkit-animation: slide-rotate-hor-t-bck 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) reverse both;
+            animation: slide-rotate-hor-t-bck 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) reverse both;
+}
+
+.loader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: white;
+    text-align: center;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin-top: -60px;
+    margin-left: -60px;
+    animation: spin 2s linear infinite;
+}
