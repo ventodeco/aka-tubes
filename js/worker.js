@@ -67,7 +67,7 @@ function calculateBubble(arr) {
 self.addEventListener('message', (e) => {
     data = {
         num: e.data.num,
-        merge: calculateMerge(e.data.arrMerge),
+        unshuffle: calculateMerge(e.data.arrUnshuffle),
         bubble: calculateBubble(e.data.arrBubble)
     }
     self.postMessage(data);

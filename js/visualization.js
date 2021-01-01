@@ -67,7 +67,7 @@ $(function() {
             queue.push([arr[i]]);
         }
         
-        stepList.set(deep++, ['Divide', deepCopy(queue)]);
+        stepList.set(deep++, ['Distribute', deepCopy(queue)]);
         
         while (queue.length > 1) {
             var temp = [];
@@ -81,7 +81,7 @@ $(function() {
             }
             
             queue = temp;
-            stepList.set(deep++, ['Combine', deepCopy(queue)]);
+            stepList.set(deep++, ['Merge', deepCopy(queue)]);
         }
     }
     
@@ -111,7 +111,7 @@ $(function() {
             }
         }
         if (arr.length < 2) {
-            return alert('Lu mau gua pukul?');
+            return alert('Sehat gan?');
         }
         
         $('#content').fadeOut(400, () => {
@@ -134,7 +134,7 @@ $(function() {
             </div>
             <center id="visualization"></center>
             `);
-            $('#visualization').append(visualizeStep('Initial', [arr]));
+            $('#visualization').append(visualizeStep('Data Awal', [arr]));
             solve(arr);
         });
         
@@ -143,12 +143,12 @@ $(function() {
     
     $('body').on('click', '.btn-next', () => {
         var step = stepList.get(currStep);
-        if (step[0] === 'Divide') {
-            $('#message').text('Bagi inputan menjadi kumpulan list yang memiliki panjang 1');
+        if (step[0] === 'Distribute') {
+            $('#message').text('Bagi inputan menjadi piles');
         } else if (currStep !== stepList.size - 1) {
             $('#message').text('Ambil data piles yang bersebelahan, lalu merge');
         } else {
-            $('#message').text('Merge piles yang tersisa dan urutkan. Yay sekarang arraynya sudah terurut :))');
+            $('#message').text('Merge piles yang tersisa. Dan data terurut');
             $('.btn-next').text('Lagi?');
             $('.btn-next').click(() => location.reload(true));
         }

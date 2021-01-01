@@ -6,7 +6,7 @@ html, body {
 }
 
 body {
-    background-image: linear-gradient(135deg, #3C8CE7 10%, #00EAFF 100%);
+    background-color: orange;
     font-family: 'Baloo Paaji 2', cursive;
 }
 
@@ -64,6 +64,7 @@ body {
 
 .btn-sort {
     margin: 0px;
+    background-color: red;
 }
 
 .btn-algoritma {
