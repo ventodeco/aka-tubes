@@ -19,7 +19,7 @@ function merge(arr1, arr2) {
     return arr3;
 }
 
-function mergeSort(arr) {
+function unshuffleSort(arr) {
     var queue = new Queue();
     for (var i = 0; i < arr.length; i++) {
         queue.push([arr[i]]);
@@ -52,7 +52,7 @@ function bubbleSort(arr) {
 
 function calculateMerge(arr) {
     var start = performance.now();
-    arr = mergeSort(arr);
+    arr = unshuffleSort(arr);
     var end = performance.now();
     return end - start;
 }

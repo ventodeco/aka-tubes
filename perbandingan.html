@@ -10,6 +10,16 @@
         <div class="loader">
             <div class="loading"></div>
         </div>
+        <div class="flex-container">
+                <div id="algorithm-field">
+                    <button id="btn-bubble" class="btn">Lihat Algoritma Bubble Sort</button>
+                    <button id="btn-unshuffle" class="btn">Lihat Algoritma Unshuffle Sort</button>
+                </div>
+                <div id="input-field">
+                    <input class="input-text" id="number" type="number" min="10" max="10000" step="10" placeholder="# Element">
+                    <button id="btn-compare" class="btn">Compare!</button>
+                </div>
+            </div>
         <div id="content" style="display: none">
             <center>
                 <h2>Perbandingan Waktu Eksekusi(ms) antara Unshuffle Sort dan Bubble Sort</h2>
@@ -20,16 +30,6 @@
                 </div>
                 <small><i>*Semakin rendah semakin bagus</i></small>
             </center>
-            <div class="flex-container">
-                <div id="algorithm-field">
-                    <button id="btn-bubble" class="btn">Lihat Algoritma Bubble Sort</button>
-                    <button id="btn-merge" class="btn">Lihat Algoritma Unshuffle Sort</button>
-                </div>
-                <div id="input-field">
-                    <input class="input-text" id="number" type="number" min="10" max="10000" step="10" placeholder="# Element">
-                    <button id="btn-compare" class="btn">Compare!</button>
-                </div>
-            </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>

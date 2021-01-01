@@ -32,7 +32,7 @@ $(function() {
         var duplicate = false;
         for (var i = 0; i < data.length; i++) {
             if (data[i].num === e.data.num) {
-                data[i].merge = ((data[i].merge * data[i].count) + e.data.merge) / (data[i].count + 1);
+                data[i].unshuffle = ((data[i].unshuffle * data[i].count) + e.data.unshuffle) / (data[i].count + 1);
                 data[i].bubble = ((data[i].bubble * data[i].count) + e.data.bubble) / (data[i].count + 1);
                 data[i].count++;
                 duplicate = true;
@@ -50,14 +50,14 @@ $(function() {
                 element: 'bar-chart',
                 data: data,
                 xkey: 'num',
-                ykeys: ['merge', 'bubble'],
-                labels: ['Merge Sort', 'Bubble Sort'],
+                ykeys: ['unshuffle', 'bubble'],
+                labels: ['Unshuffle Sort', 'Bubble Sort'],
                 hideHover: 'auto',
                 hoverCallback: (index, options, content, row) => {
                     return `
                     <div>The number of trials is ${row.count}</div>
                     <div>The number of elements is ${row.num}</div>
-                    <div style="color: rgb(11, 98, 164);">Merge Sort takes ${row.merge.toFixed(3)} ms</div>
+                    <div style="color: rgb(11, 98, 164);">Unshuffle Sort takes ${row.unshuffle.toFixed(3)} ms</div>
                     <div style="color: rgb(122, 146, 163);">Bubble Sort takes ${row.bubble.toFixed(3)} ms</div>
                     `;
                 }
@@ -87,27 +87,27 @@ $(function() {
         
         
         var arrOri = Array.from({length: num}, () => getRandInteger(Number.MIN_VALUE, Number.MAX_VALUE));
-        var arrMerge = arrOri.slice();
+        var arrUnshuffle = arrOri.slice();
         var arrBubble = arrOri.slice();
-        worker.postMessage({num: num, arrMerge: arrMerge, arrBubble: arrBubble});
+        worker.postMessage({num: num, arrUnshuffle: arrUnshuffle, arrBubble: arrBubble});
     });
    
     $('#btn-bubble').click(() => {
         showLoading();
-        $.get('code/bubble_sort.py', (data) => {
+        $.get('code/bubble_sort.js', (data) => {
             Swal.fire({
-                title: 'Bubble Sort Algorithm',
+                title: 'Algoritma Bubble Sort ',
                 html: $('<pre/>').css('text-align', 'left').html(data),
                 showConfirmButton: false
             });
         });
     });
    
-    $('#btn-merge').click(() => {
+    $('#btn-unshuffle').click(() => {
         showLoading();
-        $.get('code/merge_sort.py', (data) => {
+        $.get('code/unshuffle_sort.js', (data) => {
             Swal.fire({
-                title: 'Merge Sort Algorithm',
+                title: 'Algoritma Unshuffle Sort ',
                 width: '600px',
                 html: $('<pre/>').css('text-align', 'left').html(data),
                 showConfirmButton: false

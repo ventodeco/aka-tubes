@@ -58,7 +58,7 @@ $(function() {
         return arr3;
     }
     
-    function mergeSort(arr) {
+    function unshuffleSort(arr) {
         var queue = [];
         var deep = 0;
         stepList.set(deep++, ['Initial', [arr]]);
@@ -88,7 +88,7 @@ $(function() {
     function solve() {
         stepList = new Map();
         currStep = 1;
-        mergeSort(arr);
+        unshuffleSort(arr);
     }
     
     function visualizeStep(stage, items) {
@@ -129,7 +129,7 @@ $(function() {
             `);
             $('#content').append(`
             <div id="panel" class="box">
-                <p id="message">Klik next untuk melihat visualisasi algoritma merge sort menggunakan queue</p>
+                <p id="message">Klik next untuk melihat visualisasi algoritma Unshuffle Sort</p>
                 <button class="btn btn-next">Next</button>
             </div>
             <center id="visualization"></center>
@@ -144,12 +144,12 @@ $(function() {
     $('body').on('click', '.btn-next', () => {
         var step = stepList.get(currStep);
         if (step[0] === 'Divide') {
-            $('#message').text('Bagi inputan menjadi kumpulan array yang memiliki panjang 1');
+            $('#message').text('Bagi inputan menjadi kumpulan list yang memiliki panjang 1');
         } else if (currStep !== stepList.size - 1) {
-            $('#message').text('Combine setiap dua array yang bersebelahan dan urutkan, lalu masukkan ke dalam list of array baru');
+            $('#message').text('Ambil data piles yang bersebelahan, lalu merge');
         } else {
-            $('#message').text('Combine dua array yang tersisa dan urutkan. Yay sekarang arraynya sudah terurut :))');
-            $('.btn-next').text('Coba lagi');
+            $('#message').text('Merge piles yang tersisa dan urutkan. Yay sekarang arraynya sudah terurut :))');
+            $('.btn-next').text('Lagi?');
             $('.btn-next').click(() => location.reload(true));
         }
         $('#visualization').append(visualizeStep(step[0], step[1]));
