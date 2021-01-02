@@ -80,7 +80,7 @@ $(function() {
         if (num <= 0) {
             return alert('Sehat gan?');
         }
-        if (num > 10000) {
+        if (num > 100000) {
             return alert('Ceban ae gan');
         }
         showLoading();
